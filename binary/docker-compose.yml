@@ -1,0 +1,9 @@
+binarybase:
+    build: ./
+    volumes:
+        - ./share:/home/ctf:ro
+        - ./xinetd:/etc/xinetd.d/xinetd:ro
+    ports:
+        - "10000:4000"
+    expose:
+        - "4000"
