@@ -1,0 +1,3 @@
+[submodule "web"]
+	path = web
+	url = https://github.com/qazbnm456/hacker-college-base-image
