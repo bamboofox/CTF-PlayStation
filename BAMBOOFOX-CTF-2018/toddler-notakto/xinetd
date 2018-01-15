@@ -1,0 +1,12 @@
+service ctf
+{
+        disable = no
+        type = UNLISTED
+        wait = no
+        server = /home/ctf/ctf
+        socket_type = stream
+        protocol = tcp
+        user = ctf
+        port = 5566
+        flags = REUSE
+}

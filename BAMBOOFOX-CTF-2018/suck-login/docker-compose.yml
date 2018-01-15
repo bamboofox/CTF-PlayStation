@@ -1,0 +1,17 @@
+version: '2.2'
+services:
+  ctf:
+      build: .
+      network_mode: "bridge"
+      volumes:
+          - ./share:/www
+          - ./ctf.conf:/etc/apache2/sites-available/000-default.conf
+          - ./start.sh:/root/start.sh
+      command: /root/start.sh
+      ports:
+          - "33334:80"
+      expose:
+          - "80"
+      cpus: 0.5
+      mem_limit: 200M
+      restart: always

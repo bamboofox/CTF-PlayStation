@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+
+from graphenebase.base58 import Base58
+import sys
+import random
+import signal
+
+class TimeoutError(Exception):
+    pass
+
+def handler(signum, frame):
+    raise TimeoutError
+
+
+def keygen():
+    n = format(random.randint(1, 2**256), '02X').zfill(64)
+    return format(Base58(n),"wif")
+
+
+def start():
+    print('Please fix the bitcoin address to a valid address.')
+    count = 0
+    while 1:
+        print('hint: Fill up to 50 charactors.')
+        pk = keygen()
+        print(pk[:-(random.randint(1,4))])
+        #print(pk)
+        if input() != pk:
+            print('error private key')
+            sys.exit(1)
+        count += 1
+        if count == 5:
+            break
+
+    count = 0
+    while 1:
+        print('hint: Fill up the empty charactor.')
+        pk = keygen()
+        pos = random.randint(1,51)
+        #print(pos)
+        print(pk[:pos-1] + ' ' + pk[pos:])
+        #print(pk)
+        if input() != pk:
+            print('error private key')
+            sys.exit(1)
+        count += 1
+        if count == 5:
+            break
+
+signal.signal(signal.SIGALRM, handler)
+signal.alarm(10)
+
+try:
+    start()
+except TimeoutError:
+    print("\nTime's up, bye...")
+    sys.exit(1)
+
+print('Good Job! You got the flag!!')
+with open('/home/ctf/flag') as data:
+    print(data.read())

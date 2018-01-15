@@ -1,0 +1,15 @@
+{
+  "name": "suck-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "a0919610611",
+  "license": "ISC",
+  "dependencies": {
+    "ua-parser-js": "^0.7.17"
+  }
+}

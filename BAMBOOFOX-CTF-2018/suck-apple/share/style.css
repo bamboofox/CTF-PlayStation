@@ -1,0 +1,33 @@
+body, html {
+    height: 95%;
+}
+
+.bg {
+  background-image: url('./desktop.png');
+  height: 768px;
+  width: 1080px;
+  background-size: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.form {
+  margin: auto;
+  width: 333px;
+  text-align: center;
+  padding-top: 207px;
+  display: block;
+}
+
+.inp {
+  margin-left: 130px;
+  display: inline-block;
+  width: 60%;
+}
+
+.sbm {
+  margin-left: 275px;
+  margin-top: 19px;
+  width: 61px;
+}

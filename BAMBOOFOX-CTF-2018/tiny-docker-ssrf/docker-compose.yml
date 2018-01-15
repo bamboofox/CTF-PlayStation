@@ -1,0 +1,25 @@
+version: '2.2'
+services:
+    master:
+        image: php:7.0-apache
+        network_mode: "bridge"
+        volumes:
+            - ./src:/var/www/html/:ro
+        ports:
+            - "53323:80"
+        expose:
+            - "80"
+        cpus: 0.5
+        mem_limit: 500M
+        restart: always
+
+    slave:
+        image: php:7.0-apache
+        network_mode: "bridge"
+        volumes:
+            - ./share:/var/www/html/:ro
+        expose:
+            - "80"
+        cpus: 0.2
+        mem_limit: 100M
+        restart: always

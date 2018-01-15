@@ -1,0 +1,10 @@
+version: '2.2'
+services:
+  ctf:
+      build: .
+      network_mode: "bridge"
+      ports:
+          - "33333:7777"
+      cpus: 0.5
+      mem_limit: 100M
+      restart: always

@@ -1,0 +1,15 @@
+version: '2.2'
+services:
+    ctf:
+        build: .
+        network_mode: "bridge"
+        volumes:
+            - ./share:/home/ctf/:ro
+            - ./xinetd:/etc/xinetd.d/xinetd:ro
+        ports:
+            - "58787:5566"
+        expose:
+            - "5566"
+        cpus: 0.5
+        mem_limit: 50M
+        restart: always
